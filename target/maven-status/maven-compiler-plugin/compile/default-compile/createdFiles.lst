@@ -1,0 +1,13 @@
+views\Main.class
+views\Socios$1.class
+views\Socios.class
+views\Clientes$1.class
+views\Main$2.class
+views\Recibos$1.class
+services\CrudLocalBd.class
+com\mycompany\apiclient\APIClient.class
+views\Recibos.class
+views\Clientes.class
+views\Main$1.class
+services\CrudApi.class
+views\LoginFrame.class
