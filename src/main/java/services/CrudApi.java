@@ -24,7 +24,14 @@ import org.json.JSONObject;
  public class CrudApi {
      //Atributos generales
      private static String token = "";
-     private static String base_url = "https://hogarcastillos.queenbeesoftware.com/";
+    // private static String base_url = "https://hogarcastillos.queenbeesoftware.com/";
+          private static String base_url = "http://localhost/residencial/";
+
+     
+     public void setToken(String token) {
+         this.token = token;
+     }
+     
      
      
     //métodos que llaman a los endpoints de la API de wordpress
@@ -122,7 +129,7 @@ import org.json.JSONObject;
         System.out.println("Response: " + response.toString());
      }
 
-         public static void listClients() throws IOException {
+         public static String listClients() throws IOException {
                 URL url = new URL(base_url + "/wp-json/residencial/v1/clients");
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
@@ -135,6 +142,7 @@ import org.json.JSONObject;
                 }
                 in.close();
                 System.out.println("Clients: " + response.toString());
+                return response.toString();
          }
 
 
@@ -178,7 +186,7 @@ import org.json.JSONObject;
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("PUT");
             connection.setRequestProperty("Content-Type", "application/json");
-            connection.setRequestProperty("Authorization", "Bearer TU_TOKEN_DE_AUTENTICACION");
+            connection.setRequestProperty("Authorization", "Bearer "+token);
             connection.setDoOutput(true);
 
             // Crear el JSON con los datos actualizados
@@ -207,7 +215,7 @@ import org.json.JSONObject;
             }
         }
 
-        public static void listResidents() throws IOException {
+        public static String listResidents() throws IOException {
             URL url = new URL(base_url + "/wp-json/residencial/v1/residents");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -222,10 +230,13 @@ import org.json.JSONObject;
                         response.append(responseLine.trim());
                     }
                     System.out.println("Residentes: " + response.toString());
+                    return response.toString();
+
                 }
             } else {
                 System.out.println("Error al listar los residentes: " + responseCode);
             }
+           return "error";
         }
 
 

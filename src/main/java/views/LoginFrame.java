@@ -64,7 +64,7 @@ public class LoginFrame extends JFrame {
                 Main ventana = Main.getInstancia();
                 ventana.setVisible(true);
                 ventana.setToken(token);
-
+                this.dispose();
                 // Aquí podrías redirigir al usuario a otra ventana o funcionalidad
                 dispose(); // Cerrar la ventana de login
             } catch (IOException ex) {

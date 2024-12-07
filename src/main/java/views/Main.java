@@ -58,16 +58,29 @@ public class Main extends javax.swing.JFrame {
         titulo.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         jPanel1.add(titulo, java.awt.BorderLayout.CENTER);
 
+        jLabel2.setBackground(new java.awt.Color(153, 153, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\vicmn\\OneDrive\\Documentos\\NetBeansProjects\\APIClient\\src\\main\\java\\resources\\menu.png")); // NOI18N
         jPanel1.add(jLabel2, java.awt.BorderLayout.PAGE_START);
 
+        panelMenu.setBackground(new java.awt.Color(102, 153, 255));
+
         jButton1.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jButton1.setText("Residentes");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         panelMenu.add(jButton1);
 
         jButton2.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jButton2.setText("Socios");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         panelMenu.add(jButton2);
 
         jButton3.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
@@ -95,6 +108,18 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         jPanel1.setBounds((int) this.getAlignmentX(), (int) this.getAlignmentY(), this.getWidth(), this.getHeight());
     }//GEN-LAST:event_jPanel1AncestorResized
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Residentes r = Residentes.getInstancia(token);
+        r.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        FrameClientes nuevo = new FrameClientes(token);
+        nuevo.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
