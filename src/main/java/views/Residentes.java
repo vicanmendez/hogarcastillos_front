@@ -6,6 +6,8 @@ package views;
 
 import java.awt.Font;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -89,6 +91,19 @@ public class Residentes extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         panelNuevo = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
+        fechaNacimiento = new com.toedter.calendar.JDateChooser();
+        fechaIngreso = new com.toedter.calendar.JDateChooser();
+        txtFamiliar = new javax.swing.JTextField();
+        txtTelefonoFamiliar = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestión de residentes");
@@ -158,15 +173,87 @@ public class Residentes extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Lista", panelLista);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("Nombre");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("Documento de Identidad");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Fecha de nacimiento");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setText("Fecha de Ingreso al centro");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setText("Familiar o familiares de referencia");
+
+        jLabel6.setText("Teléfono(s) de contacto de familiar");
+
+        jButton3.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        jButton3.setText("Ingresar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelNuevoLayout = new javax.swing.GroupLayout(panelNuevo);
         panelNuevo.setLayout(panelNuevoLayout);
         panelNuevoLayout.setHorizontalGroup(
             panelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1030, Short.MAX_VALUE)
+            .addGroup(panelNuevoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(112, 112, 112)
+                .addGroup(panelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNombre)
+                    .addComponent(txtCedula)
+                    .addComponent(fechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                    .addComponent(fechaIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtFamiliar)
+                    .addComponent(txtTelefonoFamiliar))
+                .addContainerGap(335, Short.MAX_VALUE))
+            .addGroup(panelNuevoLayout.createSequentialGroup()
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelNuevoLayout.setVerticalGroup(
             panelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
+            .addGroup(panelNuevoLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(panelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(fechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(fechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(txtFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(txtTelefonoFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(46, 46, 46))
         );
 
         jTabbedPane1.addTab("+ Agregar nuevo", panelNuevo);
@@ -256,6 +343,56 @@ public class Residentes extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String nombre = txtNombre.getText();
+        String cedula = txtCedula.getText();
+         Date fechaNac = fechaNacimiento.getDate();
+         Date fechaIng = fechaIngreso.getDate();
+        String nacimiento = fechaNac != null ? new SimpleDateFormat("yyyy-MM-dd").format(fechaNac) : "No especificada";
+        String ingreso = fechaIng != null ? new SimpleDateFormat("yyyy-MM-dd").format(fechaIng) : "No especificada";
+        String familiar = txtFamiliar.getText();
+        String telefonoFamiliar = txtTelefonoFamiliar.getText();
+        
+         String mensaje = String.format("""
+        ¿Desea ingresar al residente con los siguientes datos?
+
+        Nombre: %s
+        Cédula: %s
+        Fecha de Nacimiento: %s
+        Fecha de Ingreso: %s
+        Familiar Responsable: %s
+        Teléfono del Familiar: %s
+        """, nombre, cedula, nacimiento, ingreso, familiar, telefonoFamiliar);
+        
+         int opcion = JOptionPane.showConfirmDialog(
+        null, mensaje, "Confirmar Ingreso", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        // Responder según la opción seleccionada
+        if (opcion == JOptionPane.YES_OPTION) {
+            try{
+                
+                
+                JOptionPane.showMessageDialog(null, "Residente ingresado exitosamente");
+                servicios.createResident(nombre, cedula, nacimiento, ingreso, familiar, telefonoFamiliar);
+                txtNombre.setText("");
+                txtCedula.setText("");
+                fechaNacimiento.setDate(null);
+                fechaIngreso.setDate(null);
+                txtFamiliar.setText("");
+                txtTelefonoFamiliar.setText("");
+                loadTable();
+                
+            } catch (Exception e ) {
+                JOptionPane.showMessageDialog(null, "Hubo un error al ingresar al residente. \n Código del error: " + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No se ingresará al residente");
+        }
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -306,12 +443,25 @@ public class Residentes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser fechaIngreso;
+    private com.toedter.calendar.JDateChooser fechaNacimiento;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel panelLista;
     private javax.swing.JPanel panelNuevo;
     private javax.swing.JTable table;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtFamiliar;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelefonoFamiliar;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,6 +10,7 @@ services\CrudLocalBd.class
 com\mycompany\apiclient\APIClient.class
 views\Recibos.class
 views\Main$1.class
+views\Residentes$4.class
 views\Residentes.class
 views\Main$3.class
 services\CrudApi.class
